@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Profile Card</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #d9a7c7, #fffcdc);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .main {
+      width: 320px;
+      height: 380px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .pic {
+      height: 220px;
+      width: 100%;
+      background-color: #eee;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .content h2 {
+      margin: 0;
+      font-size: 22px;
+      color: #333;
+    }
+    .dataload{
+        
+        font-weight: 400;
+        height: 30px;
+        font-size: 15px;
+        border-radius: 10px;
+        text-decoration: none;
+        background-color: #eb2727;
+    }
+
+    .content p {
+      margin: 10px 0 0;
+      font-size: 16px;
+      color: #666;
+    }
+
+    .followers {
+      margin-top: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #2b6cb0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <div class="pic"></div>
+
+    <div class="content">
+      <h2 id="username">GitHub User</h2>
+      <p>Followers</p>
+      <div class="followers numbers">0</div>
+      <input type="text" name="username" id="user" placeholder="Enter username..." >
+      <button class="dataload">Load Profile</button>
+    </div>
+  </div>
+
+  <script>
+    const image = document.querySelector(".pic");
+    const follower = document.querySelector(".numbers");
+    const username = document.getElementById("username");
+    const button = document.querySelector('.dataload');
+    const input = document.querySelector('input');
+    let user;
+    
+    const getdata = function(){
+        const xhr = new XMLHttpRequest();
+        const responseUrl = `https://api.github.com/users/${user}`;
+        
+        xhr.open("GET", responseUrl);
+        
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState === 3){
+                button.textContent = 'Loading...'
+                button.disabled = true;
+                console.log(xhr.readyState);
+            }
+            else if (xhr.readyState === 4) {
+                const data = JSON.parse(xhr.responseText);
+                
+                image.style.backgroundImage = `url(${data.avatar_url})`;
+                follower.textContent = data.followers;
+                username.textContent = data.login;
+                 button.textContent = 'Load Again'
+                button.disabled = false;
+            }
+            else if(xhr.status!= 200){
+                console.warn("server error :",xhr.status);
+            }
+        };
+        xhr.onerror=function(){
+            console.warn('Error..');
+            
+        }
+        
+        xhr.send();
+    }
+    button.addEventListener('click',()=>{
+        user = input.value;
+        input.value ="";
+        console.log(user);
+        getdata();
+
+    }) ;
+  </script>
+</body>
+</html>

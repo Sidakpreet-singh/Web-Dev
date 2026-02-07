@@ -1,0 +1,25 @@
+.but{
+  color : black;
+  font-weight : bold;
+  border-radius : 10px;
+  
+  
+}
+#but1{
+  background-color : lightgreen;
+  border : none;
+  padding : 10px 25px;
+
+}
+#but2{
+  padding : 10px 50px;
+  border : 2px solid black;
+  
+
+  
+  
+  
+  
+  
+  
+}

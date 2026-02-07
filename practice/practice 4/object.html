@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <h1>
+        objects
+    </h1>
+    
+</body>
+<script>
+
+    let product ={
+        'item-name' : 'shirt',
+        company :'Ralph Polo',
+        size : 'M',
+
+    };
+    // console.log(product);
+    // let p2 = product;
+    // p2.company = "Brooks";
+    // console.log(product);
+    // console.log(p2);
+    // console.log(product['item-name']);
+    // console.log(product.company);
+    // localStorage.setItem('product', JSON.stringify(product));
+
+    // let obj = {
+    //     message : 'Good job',
+    //     status :'complete',
+    // }
+
+    // let {message,status} = obj;
+    // message = 'bad';
+    // console.log(message);
+    // console.log(obj.message);
+    // console.log(status);
+    let str = JSON.stringify(product);
+    console.log(typeof str );
+    console.log(str);
+    p2 = JSON.parse(str);
+    console.log(typeof p2);
+    console.log(p2);
+</script>
+
+</html>

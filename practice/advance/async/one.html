@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async project 1</title>
+</head>
+<body>
+
+    <button id="start">Start</button>
+
+    <button id="stop">Stop</button>
+    
+</body>
+<script>
+    
+    let startint;
+    const start = document.querySelector('#start')
+    const stop = document.querySelector('#stop')
+    start.addEventListener('click',()=> {
+        
+        let count = 0;
+        startint =setInterval(()=>{
+        console.log("hi , sidak");
+        console.log(Date.now);
+        count++;
+        console.log(count);
+    },2000)
+
+    })
+
+    stop.addEventListener('click',()=>{
+        clearInterval(startint);
+        console.log("stopped");
+    })
+   
+    const load =setInterval(()=>{
+        console.log('loading...');
+        
+
+    },1000);
+    setTimeout(()=>{
+        clearInterval(load);
+        console.log("done!!");
+    },4000);
+   
+
+    
+</script>
+
+</html>

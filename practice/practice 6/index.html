@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+  /* Example of a radial gradient for a shimmer effect */
+  background: radial-gradient(circle, rgba(179, 135, 135, 0.8) 0%, rgba(0,0,0,0.5) 100%);
+  color: white; /* Set text color for contrast */
+  height: 100vh; /* Ensure the background covers the whole page */
+  margin: 0;
+}
+       
+        .main{
+            border : 2px solid black;
+            color: black;
+            height:500px;
+            width : 500px;
+            border-radius: 15px;
+            background-color: transparent;
+           
+           
+        }
+        .input{
+            height:100px;
+            width:500px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+           
+
+        }
+        #typo{
+            height:40px;
+            width:200px;
+            border-radius: 10px;
+            
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: large;
+            font-weight: 400;
+
+            
+        }
+        #date{
+            height:40px;
+            width:140px;
+            border-radius: 10px;
+            
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: large;
+            font-weight: 400;
+
+        }
+        
+        #btn{
+            height:45px;
+            width:100px;
+            border-radius: 10px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: large;
+            font-weight: 400;
+            background-color: rgb(150 38 255);
+            border: none;
+
+
+        }
+        #element{
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 25px;
+            
+            
+        }
+        #displayitems{
+            max-height: 220px; 
+            overflow-y: auto; 
+        }
+        #listelem #listdate{
+             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: large;
+            font-weight: 400;
+
+
+        }
+        
+        #delete{
+            height:45px;
+            width:80px;
+            border-radius: 10px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: large;
+            font-weight: 400;
+            background-color: rgb(150 38 255);
+            border: none;
+
+
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div class="main">
+        <h1>TO-DO APP</h1>
+        <hr>
+        <div class="input">
+            <input type="text" id = "typo" placeholder = "Enter the activity todo ....">
+            <input type="date" id = "date">
+            <button id="btn" onclick="add()">Add</button>
+        </div>
+        <hr>
+        <h2>TO-DO List</h2>
+
+        <div id="displayitems"></div>
+    </div>
+    </center>
+</body>
+<script>
+    let list =[{item:"js",duedate:"23-1-2015"},{item:"DSA",duedate:"23-08-2024"}];
+    
+    let i;
+    display();
+    function add(){
+        let inputelem = document.querySelector('#typo');
+        let inputval = inputelem.value;
+        let dates = document.querySelector('#date');
+        list.push({item:inputval,duedate:dates.value});
+        console.log(list);
+       
+
+        inputelem.value='';
+        display();
+        
+        
+
+    }
+    function display(){
+        let displayelem = document.querySelector('#displayitems');
+        displayelem.innerHTML ='';
+        
+        for(i =0;i<list.length;i++){
+            let {item,duedate} = list[i];
+
+            displayelem.innerHTML+=
+            `
+            <div id = element>
+            <span id="listelem">${item}</span>
+            <span id="listdate">${duedate}</span>
+            <button id="delete" onclick="list.splice(${i},1);
+            display();">delete</delete>
+                </div>
+            
+            `;
+        }
+    }
+    
+</script>
+</html>

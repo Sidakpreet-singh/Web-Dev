@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cricket Game</title>
+    <link rel="stylesheet" href="cricket.css" />
+  </head>
+
+  <body>
+    <center>
+
+        <h3 id="judge"></h3>
+      <div id="main">
+        <h1>Bat Ball Stump Game</h1>
+        <div id="btncont">
+          <button
+            id="bat-b"
+            onclick=" 
+    console.log('you have choosen BAT');
+    computerChoice();
+    userchoice = 'bat';
+    res(userchoice);
+    score.displayresult()"
+            ;
+          >
+            BAT
+          </button>
+          <button
+            id="bowl-b"
+            onclick=" console.log('you have choosen BOWL');
+    computerChoice();
+    userchoice = 'bowl';
+    res(userchoice);
+    score.displayresult()"
+            ;
+          >
+            BOWL
+          </button>
+          <button
+            id="stump-b"
+            onclick=" 
+    console.log('you have choosen STUMP') ;
+     computerChoice();
+     userchoice = 'stump';
+     res(userchoice);
+    score.displayresult()">
+            STUMP
+          </button>
+        </div>
+      </div>
+      
+
+      <button
+        onclick="localStorage.clear();
+    score={
+        win : 0,
+        lost  :0,
+        tie : 0,
+
+    };
+
+    score.displayresult = function() {
+    document.querySelector('#user-input').innerText = `you have choosen ${userchoice}`;
+    document.querySelector('#bot-input').innerText = `opponent has choosen ${compchoice}`;
+    document.querySelector('#judge').innerText = `${result}`;
+    document.querySelector('#scoreboard').innerText = `
+        -----scoreboard-----
+
+        
+        win  -> ${score.win}
+        Lost -> ${score.lost}
+        Tie  -> ${score.tie}`;
+    // Optionally, you can use alert instead of updating the DOM
+    // alert(`${result}
+    // -----scoreboard-----
+    // win  -> ${score.win}
+    // Lost -> ${score.lost}
+    // Tie  -> ${score.tie}`);
+};
+    
+    alert('Game restart')";
+      >
+        reset
+      </button>
+      <h3 id="user-input"></h3>
+      <h3 id="bot-input"></h3>
+      <div id="final"> 
+       <h3 id="scoreboard"></h3>
+       </div>
+    </center>
+  </body>
+  <script src="cricket.js"></script>
+</html>

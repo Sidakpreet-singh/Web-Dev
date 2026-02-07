@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculator</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <center>
+    <div id="main">
+        <input type="text" name="" id="display" readonly>
+        <div id="btncontainer">
+            <button id="clear" onclick = "currval = ' '; display(currval);">C</button>
+            <button id="one" onclick = "currval =currval + '1' ;display(currval);">1</button>
+            <button id="two" onclick = "currval =currval + '2' ;display(currval);">2</button>
+            <button id="three" onclick = "currval =currval + '3' ;display(currval);">3</button>
+            <button id="four" onclick = "currval =currval + '4' ;display(currval);">4</button>
+            <button id="five" onclick = "currval =currval + '5' ;display(currval);">5</button>
+            <button id="six" onclick = "currval =currval + '6' ;display(currval);">6</button>
+            <button id="seven" onclick = "currval =currval + '7' ;display(currval);">7</button>
+            <button id="eight" onclick = "currval =currval + '8' ;display(currval);">8</button>
+            <button id="nine" onclick = "currval =currval + '9' ;display(currval);">9</button>
+            <button id="zero" onclick = "currval =currval + '0' ;display(currval);">0</button>
+            <button id="plus" onclick = "currval =currval + '+' ;display(currval);">+</button>
+            <button id="minus" onclick = "currval =currval + '-' ;display(currval);">-</button>
+            <button id="divide" onclick = "currval =currval + '/' ;display(currval);">/</button>
+            <button id="multiply" onclick = "currval =currval + '*' ;display(currval);">*</button>
+            <button id="equal" onclick = "currval =eval(currval);document.querySelector('#display').value = currval ">=</button>
+            
+            
+
+
+        </div>
+    </div>
+    </center>
+    <script src="script.js"></script>
+    
+</body>
+</html>
